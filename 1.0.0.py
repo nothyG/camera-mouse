@@ -18,15 +18,13 @@ colorCeleste = (255,113,82)
 colorAmarillo = (89,222,255)
 colorRosa = (128,0,255)
 colorVerde = (0,255,36)
-colorLimpiarPantalla = (29,112,246) # Solo se usará para el cuadro superior de 'Limpiar Pantalla'
+colorLimpiarPantalla = (29,112,246)
 
-# Grosor de línea recuadros superior izquierda (color a dibujar)
 grosorCeleste = 6
 grosorAmarillo = 2
 grosorRosa = 2
 grosorVerde = 2
 
-# Grosor de línea recuadros superior derecha (grosor del marcador para dibujar)
 grosorPeque = 6
 grosorMedio = 1
 grosorGrande = 1
@@ -53,26 +51,6 @@ while True:
     frameHSV = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
     if imAux is None: imAux = np.zeros(frame.shape,dtype=np.uint8)
 
-    #------------------------ Sección Superior ------------------------------------------
-    # Cuadrados dibujados en la parte superior izquierda (representan el color a dibujar)
-    #cv2.rectangle(frame,(0,0),(50,50),colorAmarillo,grosorAmarillo)
-    #cv2.rectangle(frame,(50,0),(100,50),colorRosa,grosorRosa)
-    #cv2.rectangle(frame,(100,0),(150,50),colorVerde,grosorVerde)
-    #cv2.rectangle(frame,(150,0),(200,50),colorCeleste,grosorCeleste)
-
-    # Rectángulo superior central, que nos ayudará a limpiar la pantalla
-    #cv2.rectangle(frame,(300,0),(400,50),colorLimpiarPantalla,1)
-    #cv2.putText(frame,'Limpiar',(320,20),6,0.6,colorLimpiarPantalla,1,cv2.LINE_AA)
-    #cv2.putText(frame,'pantalla',(320,40),6,0.6,colorLimpiarPantalla,1,cv2.LINE_AA)
-
-    # Cuadrados dibujados en la parte superior derecha (grosor del marcador para dibujar)
-    #cv2.rectangle(frame,(490,0),(540,50),(0,0,0),grosorPeque)
-    #cv2.circle(frame,(515,25),3,(0,0,0),-1)
-    #cv2.rectangle(frame,(540,0),(590,50),(0,0,0),grosorMedio)
-    #cv2.circle(frame,(565,25),7,(0,0,0),-1)
-    #cv2.rectangle(frame,(590,0),(640,50),(0,0,0),grosorGrande)
-    #cv2.circle(frame,(615,25),11,(0,0,0),-1)
-    #-----------------------------------------------------------------------------------
     
     # Detección del color celeste
     maskCeleste = cv2.inRange(frameHSV, celesteBajo, celesteAlto)
